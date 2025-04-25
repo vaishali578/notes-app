@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const notesSchema = new mongoose.Schema({
     title : String,
-    content : String
+    content : String,
+    pinned: { type: Boolean, default: false }
 },
 { timestamps: true }
 )
