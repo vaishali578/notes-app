@@ -3,11 +3,14 @@ const mongoose = require("mongoose");
 const Note = require("./models/Note.js");
 const path = require("path");
 const cors = require("cors");
+const userRoutes = require("./routes/UserRoutes.js");
+
 require("dotenv").config();
 
 const app = express();
 app.use(cors()); // <--- Enable CORS
 app.use(express.json());
+app.use('/api', userRoutes);
 
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
